@@ -540,11 +540,11 @@ function SerialPortFactory(_spfOptions) {
       var as_json = udev_output_to_json(udev_output);
 
       var pnpId = '';
-	  if(as_json.DEVLINKS)
-	  {
-		  as_json.DEVLINKS.split(' ')[0];
-		  pnpId = pnpId.substring(pnpId.lastIndexOf('/') + 1);
-	  }
+      if(as_json.DEVLINKS) {
+        pnpId = as_json.DEVLINKS.split(' ')[0];
+        pnpId = pnpId.substring(pnpId.lastIndexOf('/') + 1);
+      }
+
       var port = {
         comName: as_json.DEVNAME,
         manufacturer: as_json.ID_VENDOR,
